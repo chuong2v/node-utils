@@ -1,6 +1,6 @@
 {
-  "name": "node-utils",
-  "version": "1.0.0",
+  "name": "node-utility",
+  "version": "0.0.1",
   "description": "NodeJS utils",
   "main": "index.js",
   "dependencies": {},
