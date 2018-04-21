@@ -41,4 +41,20 @@ exports.transformVietnamese = function (str, joinChar) {
   }
 
   return str;
-};
+}
+
+exports.splitTimeRange = function(params, type) {
+  params = params || {};
+  var formatStr = {
+    month: "YYYY-MM",
+    day: "YYYY-MM-DD"
+  }[type];
+  var fromDate = moment(params.fromDate).tz(params.timezone || "UTC");
+  var toDate = moment(params.toDate).tz(params.timezone || "UTC");
+  var times = [];
+  while(fromDate <= toDate){
+    times.push(fromDate.format(formatStr));
+    fromDate.add(1, type);
+  }
+  return times;
+}
