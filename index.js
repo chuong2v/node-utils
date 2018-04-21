@@ -1,6 +1,8 @@
 var fs = require('fs');
 var _ = require('lodash');
 var path = require('path');
+var moment = require('moment');
+require('moment-timezone');
 
 exports.load = function (folderPath, options) {
   options = options || {};
