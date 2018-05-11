@@ -9,8 +9,9 @@ exports.load = function (folderPath, options) {
   var returnObject = {};
   var fileNames = fs.readdirSync(folderPath);
   fileNames.forEach(function (fileName) {
-    if (fileName == 'index.js') return
-    if (_.startsWith(fileName, '.')) return
+    if (fs.statSync(path.resolve(folderPath, fileName)).isDirectory()) return;
+    if (fileName == 'index.js') return;
+    if (_.startsWith(fileName, '.')) return;
     var filePath = path.resolve(folderPath, fileName);
     returnObject[fileName.split('.')[0]] = require(filePath).default || require(filePath)
   })
